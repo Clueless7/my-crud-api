@@ -1,2 +1,83 @@
-# my-crud-api
-Testing my personal CRUD API
+# My very first CRUD API
+
+My very first CRUD API using Express js.
+This is created for testing purposes only.
+This is created by a noob, so don't be angry.
+
+## How to use?
+
+### Get all hobbies
+
+```sh
+GET http://localhost:*/api/hobbies/
+```
+
+Example output:
+
+```sh
+[
+{
+    "id": "1",
+    "hobby": "coding"
+},
+{
+    "id": "2",
+    "hobby": "sleeping"
+},
+{
+    "id": "3",
+    "hobby": "being sad"
+},
+]
+```
+
+### Get one hobby
+
+Requires:
+
+- id as a parameter(number)
+
+```sh
+GET http://localhost:*/api/hobbies/:id
+```
+
+Example output:
+
+```sh
+{
+    "id": "1", //the id number corresponds to the id parameter
+    "hobby": "coding"
+}
+```
+
+### Create a hobby
+
+Requires:
+
+- Content-type: application/json on the header
+
+```sh
+POST http://localhost:*/api/hobbies/
+Content-type: application/json
+
+{
+    "id":"x", // x must be a number
+    "hobby":"y" // y must be a string
+}
+```
+
+### Patch a hobby
+
+Requires:
+
+- id as a parameter(number)
+- Content-type: application/json on the header
+
+```sh
+PATCH http://localhost:*/api/hobbies/:id
+Content-type: application/json
+
+{
+    "hobby":"y" // y must be a string
+}
+```
