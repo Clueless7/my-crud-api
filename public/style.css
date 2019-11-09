@@ -1,4 +1,12 @@
+html {
+  scroll-behavior: smooth !important;
+}
+
 .margin-top-bottom {
   margin-top: 3rem !important;
   margin-bottom: 3rem !important;
+}
+
+.block {
+  display: block !important;
 }
