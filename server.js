@@ -3,6 +3,8 @@ const app = express();
 const hobbiesRouter = require('./routes/api/hobbies');
 const path = require('path');
 
+const PORT = process.env.PORT || 3000;
+
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -13,4 +15,4 @@ app.use((req, res, next) => {
   res.sendStatus(404);
 });
 
-app.listen(3000, () => console.log('listening on *:3000'));
+app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
