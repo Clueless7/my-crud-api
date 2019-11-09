@@ -4,9 +4,187 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Hello World</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    ></script>
+
+    <title>Josel's CRUD API</title>
   </head>
   <body>
-    <h1>Hello World</h1>
+    <div class="container">
+      <h1 class="red-text text-accent-3 center-align">
+        My very first CRUD API
+      </h1>
+
+      <p class="teal-text flow-text center-align">
+        This project aims to provide a list of my hobbies. This site uses
+        Express js as the backend for the API.
+      </p>
+
+      <h4 class="center-align">
+        My very first CRUD API using Express js. This is created for testing
+        purposes only. This is created by a noob, so don't be angry.
+      </h4>
+
+      <div class="container margin-top-bottom">
+        <ul class="collection with-header">
+          <li class="collection-header"><h5>Table of Contents:</h5></li>
+          <li class="collection-item">
+            <div>
+              Get all hobbies<a href="#get" class="secondary-content"
+                ><i class="material-icons">send</i></a
+              >
+            </div>
+          </li>
+          <li class="collection-item">
+            <div>
+              Get one hobby<a href="#getone" class="secondary-content"
+                ><i class="material-icons">send</i></a
+              >
+            </div>
+          </li>
+          <li class="collection-item">
+            <div>
+              Add a hobby<a href="#post" class="secondary-content"
+                ><i class="material-icons">send</i></a
+              >
+            </div>
+          </li>
+          <li class="collection-item">
+            <div>
+              Update a hobby<a href="#patch" class="secondary-content"
+                ><i class="material-icons">send</i></a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <h5 class="center-align">How to use?</h5>
+      <hr class="margin-top-bottom" />
+
+      <div class="grey lighten-4 hoverable margin-top-bottom">
+        <h4 class="red-text text-accent-3" id="get">Get all hobbies</h4>
+        <h5>Request:</h5>
+        <blockquote>
+          <code
+            ><pre>
+GET https://my-crud-app-1.herokuapp.com/api/hobbies
+</pre
+            ></code
+          >
+        </blockquote>
+        <h5>Output:</h5>
+        <blockquote>
+          <code
+            ><pre>
+[
+{
+    "id": "1",
+    "hobby": "coding"
+},
+{
+    "id": "2",
+    "hobby": "sleeping"
+},
+{
+    "id": "3",
+    "hobby": "being sad"
+}
+]
+</pre
+            ></code
+          >
+        </blockquote>
+      </div>
+
+      <div class="grey lighten-4 hoverable margin-top-bottom">
+        <h4 class="red-text text-accent-3" id="getone">Get one hobby</h4>
+        <h5>Requirements:</h5>
+        <li>id (number)</li>
+        <h5>Request:</h5>
+        <blockquote>
+          <code
+            ><pre>
+GET https://my-crud-app-1.herokuapp.com/api/hobbies/:id
+</pre
+            ></code
+          >
+        </blockquote>
+        <h5>Output:</h5>
+        <blockquote>
+          <code
+            ><pre>
+{
+    "id": "1",
+    "hobby": "coding"
+}
+</pre
+            ></code
+          >
+        </blockquote>
+      </div>
+
+      <div class="grey lighten-4 hoverable margin-top-bottom">
+        <h4 class="red-text text-accent-3" id="post">Add a hobby</h4>
+        <h5>Requirements:</h5>
+        <li>Content-type: application/json on the header</li>
+        <li>Id and hobby on the JSON</li>
+        <h5>Request:</h5>
+        <blockquote>
+          <code
+            ><pre>
+POST https://my-crud-app-1.herokuapp.com/api/hobbies/
+Content-type: application/json
+
+{
+    "id":"x", // x must be a number
+    "hobby":"y" // y must be a string
+}
+</pre
+            ></code
+          >
+        </blockquote>
+        <p>This will send you a status of 204</p>
+      </div>
+
+      <div class="grey lighten-4 hoverable margin-top-bottom">
+        <h4 class="red-text text-accent-3" id="patch">Update a hobby</h4>
+        <h5>Requirements:</h5>
+        <li>Content-type: application/json on the header</li>
+        <li>Hobby key and object on the JSON</li>
+        <h5>Request:</h5>
+        <blockquote>
+          <code
+            ><pre>
+POST http://localhost:*/api/hobbies/
+Content-type: application/json
+
+{
+    "hobby":"y" // y must be a string
+}</pre
+            ></code
+          >
+        </blockquote>
+        <p>This will send you a status of 204</p>
+      </div>
+    </div>
   </body>
 </html>
