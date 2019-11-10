@@ -1,0 +1,5 @@
+* The POST request
+* The DELETE request
+* The CORS policy
+* The Validation of the request body (POST and PATCH)
+* The Header at the index page
