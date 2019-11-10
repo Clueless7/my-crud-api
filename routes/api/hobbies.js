@@ -2,26 +2,49 @@ const express = require('express');
 const router = express.Router();
 const hobbies = require('../../models/Hobbies');
 
+// Middleware to check id
+const checkId = function(req, res, next) {
+  if (!req.params.id) {
+    res.status(404).json({ message: 'Please insert an id' });
+    return;
+  }
+
+  if (isNaN(parseInt(req.params.id))) {
+    res.status(404).json({ message: 'Id must be a number' });
+    return;
+  }
+
+  next();
+};
+
+// Route for getting all the hobbies
 router.get('/', (req, res) => {
   res.json(hobbies);
 });
 
-router.get('/:id', (req, res) => {
-  const found = hobbies.some(hobby => hobby.id === parseInt(req.params.id));
+// Route for getting one hobby
+router.get('/:id', checkId, (req, res) => {
+  const id = parseInt(req.params.id);
+
+  const found = hobbies.some(hobby => hobby.id === id);
 
   if (found) {
-    const foundHobby = hobbies.find(
-      hobby => hobby.id === parseInt(req.params.id)
-    );
+    const foundHobby = hobbies.find(hobby => hobby.id === id);
     res.send(foundHobby);
   } else {
-    res.status(404).json({ message: 'id not found' });
+    res.status(404).json({ message: `No hobby with the id of ${id}` });
   }
 });
 
+// Route for creating a hobby
 router.post('/', (req, res) => {
   if (!req.body.hobby || !req.body.id) {
-    res.status(404).json({ message: 'please input an id and a hobby' });
+    res.status(404).json({ message: 'Please input an id and a hobby' });
+    return;
+  }
+
+  if (isNaN(parseInt(req.body.id))) {
+    res.status(404).json({ message: 'Id must be a number' });
     return;
   }
 
@@ -34,13 +57,14 @@ router.post('/', (req, res) => {
   res.sendStatus(204);
 });
 
-router.delete('/:id', (req, res) => {
-  const found = hobbies.some(hobby => hobby.id === parseInt(req.params.id));
+// Router for deleting a hobby
+router.delete('/:id', checkId, (req, res) => {
+  const id = parseInt(req.params.id);
+
+  const found = hobbies.some(hobby => hobby.id === id);
 
   if (found) {
-    const foundHobby = hobbies.find(
-      hobby => hobby.id === parseInt(req.params.id)
-    );
+    const foundHobby = hobbies.find(hobby => hobby.id === parseInt(id));
 
     const index = hobbies.indexOf(foundHobby);
 
@@ -48,26 +72,28 @@ router.delete('/:id', (req, res) => {
 
     res.sendStatus(204);
   } else {
-    res.status(404).json({ message: 'hobby not found' });
+    res.status(404).json({ message: `No hobby with the id of ${id}` });
   }
 });
 
-router.patch('/:id', (req, res) => {
-  const found = hobbies.some(hobby => hobby.id === parseInt(req.params.id));
+// Router for patch
+router.patch('/:id', checkId, (req, res) => {
+  if (!req.body.hobby) {
+    res.status(404).json({ message: 'Please input a hobby' });
+    return;
+  }
+
+  const id = parseInt(req.params.id);
+
+  const found = hobbies.some(hobby => hobby.id === id);
 
   if (found) {
-    const foundHobby = hobbies.find(
-      hobby => hobby.id === parseInt(req.params.id)
-    );
+    const foundHobby = hobbies.find(hobby => hobby.id === id);
 
-    if (!req.body.hobby) {
-      res.status(404).json({ message: 'please check your input' });
-    } else {
-      foundHobby.hobby = req.body.hobby;
-      res.json(hobbies);
-    }
+    foundHobby.hobby = req.body.hobby;
+    res.sendStatus(204);
   } else {
-    res.status(404).json({ message: 'hobby not found' });
+    res.status(404).json({ message: `No hobby with the id of ${id}` });
   }
 });
 

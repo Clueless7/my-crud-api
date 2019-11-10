@@ -66,6 +66,16 @@ Content-type: application/json
 }
 ```
 
+### Delete a hobby
+
+Requires:
+
+- id as a parameter
+
+```sh
+DELETE https://my-crud-app-1.herokuapp.com/api/hobbies/:id
+```
+
 ### Patch a hobby
 
 Requires:
