@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
   }
 
   const newHobby = {
-    id: req.body.id,
+    id: parseInt(req.body.id),
     hobby: req.body.hobby
   };
 

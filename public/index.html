@@ -83,6 +83,13 @@
             </li>
             <li class="collection-item">
               <div>
+                Delete a hobby<a href="#delete" class="secondary-content"
+                  ><i class="material-icons">send</i></a
+                >
+              </div>
+            </li>
+            <li class="collection-item">
+              <div>
                 Update a hobby<a href="#patch" class="secondary-content"
                   ><i class="material-icons">send</i></a
                 >
@@ -94,7 +101,7 @@
         <h5 class="center-align">How to use?</h5>
         <div class="divider"></div>
 
-        <div class="grey lighten-4 hoverable margin-top-bottom">
+        <div class="grey lighten-4  margin-top-bottom">
           <h4 class="red-text text-accent-3" id="get">
             <i class="material-icons left" style="font-size: 2.5rem"
               >chevron_right</i
@@ -135,7 +142,7 @@ GET https://my-crud-app-1.herokuapp.com/api/hobbies
 
         <div class="divider"></div>
 
-        <div class="grey lighten-4 hoverable margin-top-bottom">
+        <div class="grey lighten-4  margin-top-bottom">
           <h4 class="red-text text-accent-3" id="getone">
             <i class="material-icons left" style="font-size: 2.5rem"
               >chevron_right</i
@@ -168,7 +175,7 @@ GET https://my-crud-app-1.herokuapp.com/api/hobbies/:id
 
         <div class="divider"></div>
 
-        <div class="grey lighten-4 hoverable margin-top-bottom">
+        <div class="grey lighten-4  margin-top-bottom">
           <h4 class="red-text text-accent-3" id="post">
             <i class="material-icons left" style="font-size: 2.5rem"
               >chevron_right</i
@@ -197,7 +204,29 @@ Content-type: application/json
 
         <div class="divider"></div>
 
-        <div class="grey lighten-4 hoverable margin-top-bottom">
+        <div class="grey lighten-4  margin-top-bottom">
+          <h4 class="red-text text-accent-3" id="delete">
+            <i class="material-icons left" style="font-size: 2.5rem"
+              >chevron_right</i
+            >Delete a hobby
+          </h4>
+          <h5>Requirements:</h5>
+          <li>id (number)</li>
+          <h5>Request:</h5>
+          <blockquote>
+            <code
+              ><pre>
+DELETE https://my-crud-app-1.herokuapp.com/api/hobbies/:id
+</pre
+              ></code
+            >
+          </blockquote>
+          <p>This will send you a status of 204</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grey lighten-4  margin-top-bottom">
           <h4 class="red-text text-accent-3" id="patch">
             <i class="material-icons left" style="font-size: 2.5rem"
               >chevron_right</i
