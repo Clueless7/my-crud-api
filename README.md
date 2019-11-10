@@ -4,6 +4,9 @@ My very first CRUD API using Express js.
 This is created for testing purposes only.
 This is created by a noob, so don't be angry.
 
+KEEP IN MIND THAT THE MODEL USED IS ONLY A LOCAL VARIABLE!
+I DID NOT USE ANY DATABASE IN THIS PROJECT
+
 ## How to use?
 
 ### Get all hobbies
