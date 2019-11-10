@@ -1,3 +1,1 @@
-* The POST request
-* The DELETE request
-* The Validation of the request body (POST and PATCH)
+As of now, there are no known bugs.
