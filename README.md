@@ -12,7 +12,7 @@ I DID NOT USE ANY DATABASE IN THIS PROJECT
 ### Get all hobbies
 
 ```sh
-GET http://localhost:*/api/hobbies/
+GET https://my-crud-app-1.herokuapp.com/api/hobbies/
 ```
 
 Example output:
@@ -41,7 +41,7 @@ Requires:
 - id as a parameter(number)
 
 ```sh
-GET http://localhost:*/api/hobbies/:id
+GET https://my-crud-app-1.herokuapp.com/api/hobbies/:id
 ```
 
 Example output:
@@ -60,7 +60,7 @@ Requires:
 - Content-type: application/json on the header
 
 ```sh
-POST http://localhost:*/api/hobbies/
+POST https://my-crud-app-1.herokuapp.com/api/hobbies/
 Content-type: application/json
 
 {
@@ -87,7 +87,7 @@ Requires:
 - Content-type: application/json on the header
 
 ```sh
-PATCH http://localhost:*/api/hobbies/:id
+PATCH https://my-crud-app-1.herokuapp.com/api/hobbies/:id
 Content-type: application/json
 
 {
