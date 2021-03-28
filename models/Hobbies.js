@@ -9,7 +9,7 @@ const hobbies = [
   },
   {
     id: 3,
-    hobby: 'Nothing :('
+    hobby: 'Contemplating life'
   },
   {
     id: 4,
